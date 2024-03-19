@@ -3,6 +3,7 @@ header {
   justify-content: space-between;
   align-items: start;
   padding-block: 2rem;
+  animation: fadeDown 500ms ease-in 333ms backwards;
 
   #name {
     margin: 0;

@@ -6,10 +6,12 @@
 
   .content {
     grid-column: span 4 / span 4;
+    animation: fadeUp 500ms ease-in 1s backwards;
   }
 
   > aside {
     grid-column: span 4 / span 4;
+    animation: fadeUp 500ms ease-in 1.1s backwards;
   }
 
   p {

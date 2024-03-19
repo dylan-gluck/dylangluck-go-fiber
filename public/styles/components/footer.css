@@ -1,7 +1,7 @@
 footer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   padding-block: 2rem;
 
   section:last-child {
