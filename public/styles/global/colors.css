@@ -1,0 +1,32 @@
+:root,
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --text: #ebf9f3;
+  --background: #071810;
+  --primary: #9ae0c3;
+  --secondary: #3a706c;
+  --accent: #6baab1;
+  background: var(--background);
+  color: var(--text);
+  transition: background 300ms, color 300ms;
+
+  *::selection {
+    background: #0d3826;
+  }
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --text: #06140e;
+  --background: #edf9f4;
+  --primary: #04663d;
+  --secondary: #53ada7;
+  --accent: #4d8c93;
+  background: var(--background);
+  color: var(--text);
+  transition: background 300ms, color 300ms;
+
+  *::selection {
+    background: #6baab1;
+  }
+}

@@ -1,0 +1,26 @@
+header {
+  padding-block: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  #name {
+    margin: 0;
+  }
+
+  & .navigation {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  a.active,
+  a:hover {
+    color: var(--primary);
+  }
+}

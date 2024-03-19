@@ -1,0 +1,68 @@
+#profile {
+  padding-block: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4rem;
+
+  h3,
+  h5 {
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .content {
+    grid-column: span 4 / span 4;
+  }
+
+  > aside {
+    grid-column: span 4 / span 4;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-family: "Lora";
+    color: var(--secondary);
+    max-width: 70ch;
+
+    a {
+      color: var(--accent);
+      border-bottom: 1px dashed var(--accent);
+    }
+
+    .label {
+      color: var(--primary);
+    }
+  }
+
+  dl {
+    margin-bottom: 0.5rem;
+
+    .role {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin: 0;
+    }
+
+    .company {
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin: 0;
+    }
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #profile {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    & > aside {
+      grid-column: span 2 / span 2;
+    }
+  }
+}

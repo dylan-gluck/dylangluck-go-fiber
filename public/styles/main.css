@@ -1,0 +1,15 @@
+/* Global */
+@import url("global/reset.css") layer(base);
+@import url("global/fonts.css") layer(base);
+@import url("global/colors.css") layer(base);
+@import url("global/typography.css") layer(base);
+@import url("global/animations.css") layer(base);
+@import url("global/accessibility.css") layer(base);
+@import url("global/scaffold.css") layer(base);
+
+/* Components */
+@import url("components/header.css") layer(components);
+
+/* Home */
+@import url("home/intro.css") layer(pages);
+@import url("home/profile.css") layer(pages);
