@@ -16,7 +16,7 @@ func main() {
         Views: engine,
     })
 
-		app.Static("/", "./public")
+    app.Static("/", "./public")
 
     app.Get("/", func(c *fiber.Ctx) error {
         // Render index within layouts/main
