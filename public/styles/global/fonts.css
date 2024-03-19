@@ -1,22 +1,17 @@
 @font-face {
-  font-family: "Anybody";
-  font-style: normal;
-  src: url(/fonts/Anybody[slnt,wdth,wght].woff2) format("woff2"),
-    url(/fonts/Anybody[slnt,wdth,wght].ttf) format("truetype");
+    font-family: "Inter";
+    font-style: normal;
+    font-display: auto;
+    src:
+        url(/fonts/Inter[slnt,wght].woff2) format("woff2"),
+        url(/fonts/Inter[slnt,wght].ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-display: auto;
-  src: url(/fonts/Inter[slnt,wght].woff2) format("woff2"),
-    url(/fonts/Inter[slnt,wght].ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Lora";
-  font-style: normal;
-  font-display: auto;
-  src: url(/fonts/Lora[wght].woff2) format("woff2"),
-    url(/fonts/Lora[wght].ttf) format("truetype");
+    font-family: "Lora";
+    font-style: normal;
+    font-display: auto;
+    src:
+        url(/fonts/Lora[wght].woff2) format("woff2"),
+        url(/fonts/Lora[wght].ttf) format("truetype");
 }

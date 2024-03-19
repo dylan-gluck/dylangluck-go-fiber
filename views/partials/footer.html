@@ -1,61 +1,98 @@
 <footer aria-label="Footer">
-  <section aria-label="Colophon">
-    <h5>Colophon</h5>
-    <p aria-label="Typography">
-      Type set in
-      <a href="https://github.com/cyrealtype/Lora-Cyrillic" target="_blank"
-        >Lora</a
-      >
-      by Ceryaltype,
-      <a href="https://github.com/rsms/inter/" target="_blank">Inter</a> by R.
-      Andersson
-    </p>
-    <!-- <p aria-label="Colors">
-      Color palette designed with
-      <a href="https://www.realtimecolors.com/" target="_blank"
-        >Realtime Colors</a
-      >
-    </p> -->
-    <p aria-label="Stack">
-      Written in HTML, CSS, Javascript & the
-      <a href="https://www.w3.org/TR/design-principles/" target="_blank"
-        >web platform</a
-      >
-    </p>
-    <p aria-label="SSR">
-      <a href="https://hypermedia.systems/book/foreword/" target="_blank"
-        >Hypermedia</a
-      >
-      rendered in <a href="https://go.dev/" target="_blank">Go</a>, enhanced
-      with
-      <a href="https://htmx.org/" target="_blank">HTMX</a>
-    </p>
-    <!-- <p aria-label="Hosting">
-      Hosted on <a href="https://vercel.com/" target="_blank">Vercel</a>, using
-      only
-      <a
-        href="https://www.websitecarbon.com/website/dylangluck-23-vercel-app/"
-        target="_blank"
-        >0.11g</a
-      >
-      website carbon
-    </p> -->
-  </section>
-  <section aria-label="Site footer">
-    <nav aria-label="Pages">
-      <a href="/" class="active">Profile</a>
-      <a href="https://github.com/dylan-gluck" target="_blank" lang="en-US"
-        >Github</a
-      >
-      <a
-        href="https://www.linkedin.com/in/dylangluck/"
-        target="_blank"
-        lang="en-US"
-        >Linkedin</a
-      >
-    </nav>
-    <p aria-label="Copyright">
-      &copy;2024 Dylan Navajas Gluck. All rights reserved.
-    </p>
-  </section>
+    <section aria-label="Colophon">
+        <h5>Colophon</h5>
+        <p aria-label="Typography">
+            Type set in
+            <a
+                href="https://github.com/cyrealtype/Lora-Cyrillic"
+                target="_blank"
+                >Lora</a
+            >
+            by Ceryaltype,
+            <a href="https://github.com/rsms/inter/" target="_blank">Inter</a>
+            by R. Andersson
+        </p>
+        <p aria-label="Stack">
+            Written in HTML, CSS, Javascript & the
+            <a href="https://www.w3.org/TR/design-principles/" target="_blank"
+                >web platform</a
+            >
+        </p>
+        <p aria-label="SSR">
+            <a href="https://hypermedia.systems/book/foreword/" target="_blank"
+                >Hypermedia</a
+            >
+            rendered in <a href="https://go.dev/" target="_blank">Go</a>,
+            enhanced with
+            <a href="https://htmx.org/" target="_blank">HTMX</a>
+        </p>
+    </section>
+    <section aria-label="Site footer">
+        <nav aria-label="Pages">
+            <a href="/" class="active">Profile</a>
+            <a
+                href="https://github.com/dylan-gluck"
+                target="_blank"
+                lang="en-US"
+                >Github</a
+            >
+            <a
+                href="https://www.linkedin.com/in/dylangluck/"
+                target="_blank"
+                lang="en-US"
+                >Linkedin</a
+            >
+        </nav>
+        <p aria-label="Copyright">
+            &copy;2024 Dylan Navajas Gluck. All rights reserved.
+        </p>
+    </section>
 </footer>
+
+<style>
+    footer {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        padding-block: 2rem;
+
+        section:last-child {
+            @apply flex flex-col gap-6;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            gap: 0.75rem;
+            padding-top: 0.5rem;
+            width: fit-content;
+        }
+
+        a {
+            font-size: 0.8rem;
+
+            &:hover,
+            &:focus,
+            &.active {
+                color: var(--primary);
+            }
+        }
+
+        p {
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            font-family: "Lora";
+            font-style: italic;
+            color: var(--secondary);
+            max-width: 55ch;
+
+            a {
+                color: var(--accent);
+                border-bottom: 1px dashed var(--accent);
+            }
+        }
+    }
+</style>

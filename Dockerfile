@@ -13,6 +13,9 @@ RUN go mod download
 # https://docs.docker.com/reference/dockerfile/#copy
 ADD *.go ./
 
+RUN mkdir ./api
+COPY api/ ./api/
+
 RUN mkdir ./public
 COPY public/ ./public/
 
@@ -20,7 +23,7 @@ RUN mkdir ./views
 COPY views/ ./views/
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o /web
+RUN CGO_ENABLED=0 GOOS=linux go build -o ./app
 
 # Optional:
 # To bind to a TCP port, runtime parameters must be supplied to the docker command.
@@ -30,4 +33,4 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /web
 EXPOSE 8080
 
 # Run
-CMD ["/web"]
+CMD ["./app"]

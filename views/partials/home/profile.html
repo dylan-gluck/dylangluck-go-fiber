@@ -1,0 +1,81 @@
+<section id="profile" aria-label="Profile" class="grid">
+    <div class="content">
+        <h4>Profile</h4>
+        <p>
+            New York based full-stack engineer, designer, and AI researcher with
+            over 14 years experience delivering industry-leading solutions for
+            enterprise clients. My passion is creating user-focused web
+            experiences that are engaging, performant and accessible.
+        </p>
+        <p>
+            Currently leading UX Engineering at
+            <a href="https://unqork.com" target="_blank">Unqork</a>, where I
+            collaborate closely with SLT to develop best practices and processes
+            in design-system integration and developer experience.
+        </p>
+        <h4>Capabilities</h4>
+        <p>
+            <span class="label">Web platform;</span> HTML, CSS, Javascript; SSR,
+            SPA, PWA, Web components, Accessibility, CRO & growth.
+            <span class="label">Backend;</span> Go, Gleam, PHP, Python, NodeJs,
+            Neo4j, SQL, Mongo, GraphQL, Docker.
+            <span class="label">AI;</span> Transformers, Image Diffusion,
+            Fine-tuning, QLoRA, RAG, Langchain, LlamaIndex, Autogen.
+            <span class="label">Data;</span> Pandas, NumPy, Pytorch, D3.js,
+            three.js
+        </p>
+    </div>
+    {{template "partials/home/sidebar" .}}
+</section>
+
+<style>
+    #profile {
+        --pico-grid-column-gap: 4rem;
+        --pico-grid-row-gap: 2rem;
+        padding-block: 2rem;
+
+        .content {
+            grid-column: span 2;
+            animation: fadeUp 500ms ease-in 1s backwards;
+        }
+
+        > aside {
+            animation: fadeUp 500ms ease-in 1.1s backwards;
+        }
+
+        p {
+            font-family: "Lora";
+            color: var(--secondary);
+            max-width: 70ch;
+
+            a {
+                color: var(--accent);
+                border-bottom: 1px dashed var(--accent);
+            }
+
+            .label {
+                color: var(--primary);
+            }
+        }
+
+        dl {
+            margin-bottom: 0.5rem;
+
+            .role {
+                font-size: 0.9rem;
+                color: var(--secondary);
+                margin: 0;
+            }
+
+            .company {
+                font-size: 0.7rem;
+                color: var(--accent);
+                margin: 0;
+            }
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+    }
+</style>

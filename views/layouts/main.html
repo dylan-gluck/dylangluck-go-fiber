@@ -1,33 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="Full-stack engineer, Designer & AI researcher — working closely with leaders to shape the next generation of web companies."
-    />
-    <meta
-      name="keywords"
-      content="Dylan Navajas Gluck, Dylan Gluck, Full-stack engineer, AI researcher, Engineering Manager, New York Software Engineer, Senior Software Engineer, New York"
-    />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta property="og:title" content="Dylan Navajas Gluck" />
-    <meta
-      property="og:description"
-      content="Full-stack engineer, designer & AI researcher — working closely with leaders to shape the next generation of web companies."
-    />
-    <meta property="og:image" content="{{ .Host }}/preview.png" />
+<!doctype html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="description"
+            content="Full-stack engineer, Designer & AI researcher — working closely with leaders to shape the next generation of web companies."
+        />
+        <meta
+            name="keywords"
+            content="Dylan Navajas Gluck, Dylan Gluck, Full-stack engineer, AI researcher, Engineering Manager, New York Software Engineer, Senior Software Engineer, New York"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta property="og:title" content="Dylan Navajas Gluck" />
+        <meta
+            property="og:description"
+            content="Full-stack engineer, designer & AI researcher — working closely with leaders to shape the next generation of web companies."
+        />
+        <meta
+            property="og:image"
+            content="https://dylangluck.com/preview.png"
+        />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <link rel="stylesheet" href="/styles/main.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css"
+        />
+        <script src="https://unpkg.com/htmx.org"></script>
+        <script src="https://unpkg.com/htmx.org@1.9.11/dist/ext/path-params.js"></script>
+        <script src="https://unpkg.com/hyperscript.org"></script>
 
-    <title>{{ .Title }} | Dylan Navajas Gluck</title>
-  </head>
-  <body class="container">
-    {{embed}}
-  </body>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
+        <link rel="stylesheet" href="/styles/main.css" />
+
+        <title>{{ .Title }} | Dylan Navajas Gluck</title>
+    </head>
+    <body class="container">
+        {{template "partials/header" .}}
+
+        <main id="main">{{embed}}</main>
+
+        {{template "partials/footer" .}}
+    </body>
 </html>

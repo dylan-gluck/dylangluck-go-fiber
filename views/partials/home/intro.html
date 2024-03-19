@@ -1,0 +1,43 @@
+<section id="intro" aria-label="Intro">
+    <hgroup>
+        <h1>
+            Designing innovative solutions, fostering new ideas, and driving
+            business success.
+        </h1>
+        <h3>
+            Full-stack engineer & designer — working closely with leaders to
+            shape the
+            <span class="text-primary">next generation of web companies.</span>
+        </h3>
+    </hgroup>
+</section>
+
+<style>
+    #intro {
+        padding-block: 2rem;
+
+        hgroup {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            > :not(:first-child):last-child {
+                font-size: 1.2rem;
+                line-height: 1.2;
+            }
+        }
+
+        h1 {
+            margin: 0;
+            animation:
+                blurIn 800ms ease-out 700ms backwards,
+                fadeUp 900ms ease-in 50ms backwards;
+        }
+
+        h3 {
+            font-family: "Inter", sans-serif;
+            color: var(--secondary);
+            animation: fadeUp 600ms ease-in 900ms backwards;
+        }
+    }
+</style>

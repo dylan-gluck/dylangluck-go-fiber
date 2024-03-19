@@ -1,22 +1,57 @@
-<header aria-labelledby="name">
-  <a href="/" aria-label="Dylan Navajas Gluck">
-    <span id="name">Dylan Navajas Gluck</span>
-  </a>
-  <div class="navigation">
-    <nav aria-label="Accessibility">
-      <a href="#main" class="sr-only">Jump to content</a>
-    </nav>
-    <nav aria-label="Primary">
-      <a href="/" class="active">Profile</a>
-      <a href="https://github.com/dylan-gluck" target="_blank" lang="en-US"
-        >Github</a
-      >
-      <a
-        href="https://www.linkedin.com/in/dylangluck/"
-        target="_blank"
-        lang="en-US"
-        >Linkedin</a
-      >
-    </nav>
-  </div>
+<header>
+    <a href="/" id="name" aria-label="Dylan Navajas Gluck">
+        <span>Dylan Navajas Gluck</span>
+    </a>
+    <div class="navigation">
+        <nav aria-label="Accessibility">
+            {{template "partials/theme-toggle" .}}
+            <a href="#main" class="sr-only">Jump to content</a>
+        </nav>
+        <nav id="nav-primary" aria-label="Primary">
+            <a href="/" class="active">Profile</a>
+            <a
+                href="https://github.com/dylan-gluck"
+                target="_blank"
+                lang="en-US"
+                >Github</a
+            >
+            <a
+                href="https://www.linkedin.com/in/dylangluck/"
+                target="_blank"
+                lang="en-US"
+                >Linkedin</a
+            >
+        </nav>
+    </div>
 </header>
+
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        padding-block: 2rem;
+        animation: fadeDown 500ms ease-in 333ms backwards;
+
+        a {
+            font-size: 0.8rem;
+
+            &:hover,
+            &:focus,
+            &.active {
+                color: var(--primary);
+            }
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+        }
+
+        #nav-primary {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+</style>
