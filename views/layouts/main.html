@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta
@@ -51,7 +51,26 @@
         <link rel="stylesheet" href="/styles/main.css" />
 
         <title>{{ .Title }} | Dylan Navajas Gluck</title>
+
+        <script type="text/hyperscript">
+            js
+              function getTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches
+              }
+              return { getTheme };
+            end
+
+            on load
+                getTheme() then set prefersDark to it
+                if prefersDark
+                    put 'dark' into @data-theme of <html/>
+                else
+                    put 'light' into @data-theme of <html/>
+                end
+            end
+        </script>
     </head>
+
     <body class="container">
         {{template "partials/header" .}}
 

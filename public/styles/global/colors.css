@@ -20,7 +20,7 @@ html[data-theme="dark"] {
 html[data-theme="light"] {
     color-scheme: light;
     --text: #06140e;
-    --background: #edf9f4;
+    --background: #e8f2ee;
     --primary: #30d08d;
     --secondary: #a4bfbd;
     --accent: #4eae9c;
