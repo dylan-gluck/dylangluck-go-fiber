@@ -9,6 +9,7 @@
 
 /* Components */
 @import url("components/header.css") layer(components);
+@import url("components/footer.css") layer(components);
 
 /* Home */
 @import url("home/intro.css") layer(pages);

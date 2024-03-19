@@ -1,11 +1,12 @@
 header {
-  padding-block: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: start;
+  padding-block: 2rem;
 
   #name {
     margin: 0;
+    font-size: 1.3rem;
   }
 
   & .navigation {

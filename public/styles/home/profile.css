@@ -2,13 +2,7 @@
   padding-block: 2rem;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 4rem;
-
-  h3,
-  h5 {
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
+  row-gap: 2rem;
 
   .content {
     grid-column: span 4 / span 4;
@@ -60,6 +54,7 @@
 @media (min-width: 768px) {
   #profile {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 8rem;
 
     & > aside {
       grid-column: span 2 / span 2;

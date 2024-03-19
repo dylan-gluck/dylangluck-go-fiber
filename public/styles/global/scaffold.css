@@ -1,5 +1,11 @@
 .container {
-  width: 94%;
-  max-width: 1300px;
+  width: 80%;
+  max-width: 1400px;
   margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 85%;
+  }
 }
