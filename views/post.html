@@ -1,0 +1,69 @@
+<h1 class="post-title">{{ .Title }}</h1>
+<article class="post grid">
+    <section class="post-content">{{ unescape .Content }}</section>
+    <aside>
+        <dl>
+            <dt>Created</dt>
+            <dd>{{ .Date }}</dd>
+        </dl>
+        <dl>
+            <dt>Tags</dt>
+            <dd>
+                {{ range .Tags }}
+                <a class="badge" href="/tags/{{ . }}">{{ . }}</a>
+                {{ end }}
+            </dd>
+        </dl>
+    </aside>
+</article>
+
+<style>
+    article {
+        all: unset;
+    }
+
+    .post {
+        --pico-grid-column-gap: 4rem;
+    }
+
+    .post-title {
+        text-wrap: balance;
+        margin-bottom: 4rem;
+    }
+
+    .post-content {
+        grid-column: span 2;
+    }
+
+    dl {
+        margin-bottom: 0.5rem;
+
+        dd {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        dt {
+            font-size: 0.7rem;
+            color: var(--accent);
+            margin: 0 0 0.15rem;
+        }
+    }
+
+    .badge {
+        background-color: var(--primary);
+        color: var(--background);
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        line-height: 1;
+
+        &:hover {
+            background-color: var(--accent);
+        }
+    }
+</style>
