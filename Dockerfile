@@ -13,11 +13,14 @@ RUN go mod download
 # https://docs.docker.com/reference/dockerfile/#copy
 ADD *.go ./
 
-RUN mkdir ./api
-COPY api/ ./api/
+RUN mkdir ./blog
+COPY blog/ ./blog/
 
 RUN mkdir ./public
 COPY public/ ./public/
+
+RUN mkdir ./util
+COPY util/ ./util/
 
 RUN mkdir ./views
 COPY views/ ./views/
