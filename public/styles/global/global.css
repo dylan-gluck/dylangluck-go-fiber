@@ -1,0 +1,18 @@
+.container {
+    width: 90%;
+}
+
+article {
+    all: unset;
+}
+
+.card {
+    background: var(--neutral, #fff);
+    border-radius: 9px;
+    padding: 1.5rem;
+
+    &.fit-content {
+        width: fit-content;
+        height: fit-content;
+    }
+}

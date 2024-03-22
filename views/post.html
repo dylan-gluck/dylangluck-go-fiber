@@ -1,69 +1,105 @@
-<h1 class="post-title">{{ .Title }}</h1>
-<article class="post grid">
-    <section class="post-content">{{ unescape .Content }}</section>
-    <aside>
-        <dl>
-            <dt>Created</dt>
-            <dd>{{ .Date }}</dd>
-        </dl>
-        <dl>
-            <dt>Tags</dt>
-            <dd>
-                {{ range .Tags }}
-                <a class="badge" href="/tags/{{ . }}">{{ . }}</a>
-                {{ end }}
-            </dd>
-        </dl>
-    </aside>
+<article class="post">
+    <hgroup
+        class="post-header"
+        _="on intersection(intersecting) having threshold 0.3
+        if intersecting
+            get .post-short then
+            put it at the end of <hgroup/>
+        else
+            get .post-short then
+            put it at the start of <aside/>
+        end"
+    >
+        <h1 class="post-title">{{ .Title }}</h1>
+        <h3 class="post-short">{{ .Short }}</h3>
+    </hgroup>
+    <div class="grid">
+        <section class="post-content">{{ unescape .Content }}</section>
+        <aside>
+            <dl>
+                <dt>Created</dt>
+                <dd>{{ .Date }}</dd>
+            </dl>
+            <dl>
+                <dt>Tags</dt>
+                <dd>
+                    {{ range .Tags }}
+                    <a class="badge" href="/blog/tag/{{ . }}">{{ . }}</a>
+                    {{ end }}
+                </dd>
+            </dl>
+        </aside>
+    </div>
 </article>
 
 <style>
-    article {
-        all: unset;
-    }
-
     .post {
-        --pico-grid-column-gap: 4rem;
-    }
+        > .grid {
+            --pico-grid-column-gap: 4rem;
+        }
 
-    .post-title {
-        text-wrap: balance;
-        margin-bottom: 4rem;
-    }
+        .post-title {
+            margin-bottom: 1rem;
+            max-width: 33ch;
+            animation: fadeUp 500ms ease-in 300ms backwards;
+        }
 
-    .post-content {
-        grid-column: span 2;
-    }
-
-    dl {
-        margin-bottom: 0.5rem;
-
-        dd {
-            font-size: 0.9rem;
+        .post-short {
+            line-height: 1.4;
+            max-width: 66ch;
             color: var(--secondary);
-            margin: 0;
+            margin-bottom: 4rem;
+            animation: fadeUp 500ms ease-in 500ms backwards;
         }
 
-        dt {
+        .post-content {
+            grid-column: span 2;
+            animation: fadeUp 400ms ease-in 800ms backwards;
+        }
+
+        aside {
+            height: fit-content;
+            position: sticky;
+            top: 1rem;
+            animation: fadeUp 400ms ease-in 900ms backwards;
+
+            .post-short {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        dl {
+            margin-bottom: 0.5rem;
+
+            dd {
+                font-size: 0.9rem;
+                color: var(--secondary);
+                margin: 0;
+            }
+
+            dt {
+                font-size: 0.7rem;
+                color: var(--accent);
+                margin: 0 0 0.15rem;
+            }
+        }
+
+        .badge {
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
             font-size: 0.7rem;
-            color: var(--accent);
-            margin: 0 0 0.15rem;
-        }
-    }
+            font-weight: 700;
+            line-height: 1;
 
-    .badge {
-        background-color: var(--primary);
-        color: var(--background);
-        padding: 0.25rem 0.75rem;
-        border-radius: 0.5rem;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 0.7rem;
-        font-weight: 700;
-        line-height: 1;
-
-        &:hover {
-            background-color: var(--accent);
+            &:hover {
+                color: var(--background);
+                background-color: var(--accent);
+            }
         }
     }
 </style>

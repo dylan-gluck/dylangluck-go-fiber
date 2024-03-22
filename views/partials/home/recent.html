@@ -1,0 +1,53 @@
+<section id="recent" aria-label="Recent">
+    <h4>Recent</h4>
+    <ul
+        hx-boost="true"
+        hx-push-url="true"
+        hx-target="main"
+        hx-select="main"
+        hx-swap="outerHTML"
+    >
+        {{range .Posts}}
+        <li>
+            <a href="blog/{{ .Id }}">{{ .Title }}</a>
+            <time>{{ .Date }}</time>
+        </li>
+        {{end}}
+    </ul>
+</section>
+
+<style>
+    #recent {
+        animation: fadeUp 600ms ease-in 800ms backwards;
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        time {
+            display: inline-block;
+            margin-left: 0.25rem;
+            font-family: "Lora";
+            font-style: italic;
+            font-size: 0.7em;
+            opacity: 0.5;
+            transition:
+                opacity 300ms ease-in-out,
+                translate 200ms ease-in-out;
+        }
+    }
+
+    @media (min-width: 768px) {
+        #recent li {
+            time {
+                translate: 30% 0;
+                opacity: 0;
+            }
+
+            a:hover + time {
+                translate: 0 0;
+                opacity: 0.5;
+            }
+        }
+    }
+</style>

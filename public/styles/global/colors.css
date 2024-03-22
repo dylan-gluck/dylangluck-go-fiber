@@ -6,6 +6,7 @@ html[data-theme="dark"] {
     --primary: #9ae0c3;
     --secondary: #3a706c;
     --accent: #6baab1;
+    --neutral: #000;
     background: var(--background);
     color: var(--text);
     transition:
@@ -20,10 +21,11 @@ html[data-theme="dark"] {
 html[data-theme="light"] {
     color-scheme: light;
     --text: #06140e;
-    --background: #e8f2ee;
-    --primary: #30d08d;
-    --secondary: #95b0ae;
-    --accent: #4eae9c;
+    --background: #f0f0eb;
+    --primary: #11100f;
+    --secondary: #a29c95;
+    --accent: #cb785c;
+    --neutral: #fff;
     background: var(--background);
     color: var(--text);
     transition:

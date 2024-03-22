@@ -50,7 +50,7 @@
         <meta name="color-scheme" content="light dark" />
         <link rel="stylesheet" href="/styles/main.css" />
 
-        <title>{{ .Title }} | Dylan Navajas Gluck</title>
+        <title>{{ printf "%.*s" 25 .Title }} | Dylan Navajas Gluck</title>
 
         <script type="text/hyperscript">
             js
@@ -60,7 +60,7 @@
               return { getTheme };
             end
 
-            on load
+            on load 1
                 getTheme() then set prefersDark to it
                 if prefersDark
                     put 'dark' into @data-theme of <html/>

@@ -8,7 +8,7 @@
                 target="_blank"
                 >Lora</a
             >
-            by Ceryaltype and
+            by Ceryaltype &amp;
             <a href="https://github.com/rsms/inter/" target="_blank">Inter</a>
             by R. Andersson
         </p>
@@ -25,25 +25,20 @@
         </p>
         <p aria-label="Front-end">
             Front-end is <a href="https://htmx.org/" target="_blank">HTMX</a>,
-            CSS, &
+            CSS, &amp;
             <a href="https://hyperscript.org" target="_blank">Hyperscript</a>
         </p>
     </section>
     <section aria-label="Site footer">
-        <nav aria-label="Pages">
-            <a href="/" class="active">Profile</a>
-            <a
-                href="https://github.com/dylan-gluck"
-                target="_blank"
-                lang="en-US"
-                >Github</a
-            >
-            <a
-                href="https://www.linkedin.com/in/dylangluck/"
-                target="_blank"
-                lang="en-US"
-                >Linkedin</a
-            >
+        <nav
+            aria-label="Pages"
+            hx-boost="true"
+            hx-push-url="true"
+            hx-target="main"
+            hx-select="main"
+            hx-swap="outerHTML show:window:top"
+        >
+            {{template "views/partials/nav-items" .}}
         </nav>
         <p aria-label="Copyright">
             &copy;2024 Dylan Navajas Gluck. All rights reserved.
@@ -57,6 +52,7 @@
         flex-direction: column;
         gap: 4rem;
         padding-block: 2rem;
+        font-size: 0.8rem;
 
         section:last-child {
             @apply flex flex-col gap-6;
@@ -73,28 +69,12 @@
             width: fit-content;
         }
 
-        a {
-            font-size: 0.8rem;
-
-            &:hover,
-            &:focus,
-            &.active {
-                color: var(--primary);
-            }
-        }
-
         p {
-            font-size: 0.85rem;
             margin-bottom: 0.6rem;
             font-family: "Lora";
             font-style: italic;
             color: var(--secondary);
             max-width: 55ch;
-
-            a {
-                color: var(--accent);
-                border-bottom: 1px dashed var(--accent);
-            }
         }
     }
 </style>
