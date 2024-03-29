@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="description"
+            content="Full-stack engineer, Designer & AI researcher — working closely with leaders to shape the next generation of web companies."
+        />
+        <meta
+            name="keywords"
+            content="Dylan Navajas Gluck, Dylan Gluck, Full-stack engineer, AI researcher, Engineering Manager, New York Software Engineer, Senior Software Engineer, New York"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta property="og:title" content="Dylan Navajas Gluck" />
+        <meta
+            property="og:description"
+            content="Full-stack engineer, designer & AI researcher — working closely with leaders to shape the next generation of web companies."
+        />
+        <meta
+            property="og:image"
+            content="https://dylangluck.com/preview.png"
+        />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
+        <link rel="stylesheet" href="/styles/main.css" />
+
+        <title>404 - Page not found | Dylan Navajas Gluck</title>
+
+        <style>
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                padding-block: 2rem;
+                font-size: 0.8rem;
+                animation: fadeDown 500ms ease-in 333ms backwards;
+
+                .navigation {
+                    display: flex;
+                    gap: 1rem;
+                }
+
+                #nav-primary {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+
+                    a {
+                        width: fit-content;
+
+                        &[target="_blank"] {
+                            position: relative;
+
+                            &::after {
+                                content: "";
+                                display: inline-block;
+                                width: 1em;
+                                height: 1em;
+                                position: absolute;
+                                bottom: 0.125em;
+                                left: 110%;
+                                opacity: 0;
+                                translate: 50%;
+                                transition:
+                                    opacity 300ms ease,
+                                    translate 200ms ease-in;
+
+                                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z'/%3E%3C/svg%3E");
+                                background-color: color-mix(
+                                    in srgb,
+                                    var(--text),
+                                    transparent
+                                );
+                                -webkit-mask-image: var(--svg);
+                                mask-image: var(--svg);
+                                -webkit-mask-repeat: no-repeat;
+                                mask-repeat: no-repeat;
+                                -webkit-mask-size: 100% 100%;
+                                mask-size: 100% 100%;
+                            }
+
+                            &:hover::after {
+                                opacity: 1;
+                                translate: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #error {
+                margin-bottom: 4rem;
+
+                h1 {
+                    font-size: 2.5rem;
+                }
+                h3 {
+                    color: var(--secondary);
+                }
+            }
+
+            footer {
+                display: flex;
+                flex-direction: column;
+                gap: 4rem;
+                padding-block: 2rem;
+                font-size: 0.8rem;
+
+                section:last-child {
+                    @apply flex flex-col gap-6;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+
+                nav {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 0.75rem;
+                    padding-top: 0.5rem;
+                    width: fit-content;
+                }
+
+                p {
+                    margin-bottom: 0.6rem;
+                    font-family: "Lora";
+                    font-style: italic;
+                    color: var(--secondary);
+                    max-width: 55ch;
+                }
+            }
+        </style>
+    </head>
+    <body class="container">
+        <header>
+            <a href="/" id="name" aria-label="Dylan Navajas Gluck">
+                <span>Dylan Navajas Gluck</span>
+            </a>
+            <div class="navigation">
+                <nav id="nav-primary" aria-label="Primary">
+                    <a href="/">Profile</a>
+                    <a href="/blog">Blog</a>
+                    <a
+                        href="https://github.com/dylan-gluck"
+                        target="_blank"
+                        lang="en-US"
+                        >Github</a
+                    >
+                    <a
+                        href="https://www.linkedin.com/in/dylangluck/"
+                        target="_blank"
+                        lang="en-US"
+                        >Linkedin</a
+                    >
+                </nav>
+            </div>
+        </header>
+
+        <main id="main">
+            <section id="error" aria-label="404">
+                <hgroup>
+                    <h1>404: Page not found</h1>
+                    <h3>
+                        The page you are looking for does not exist. Please
+                        check the URL and try again.
+                    </h3>
+                </hgroup>
+            </section>
+        </main>
+
+        <footer aria-label="Footer">
+            <section aria-label="Site footer">
+                <nav>
+                    <a href="/">Profile</a>
+                    <a href="/blog">Blog</a>
+                    <a
+                        href="https://github.com/dylan-gluck"
+                        target="_blank"
+                        lang="en-US"
+                        >Github</a
+                    >
+                    <a
+                        href="https://www.linkedin.com/in/dylangluck/"
+                        target="_blank"
+                        lang="en-US"
+                        >Linkedin</a
+                    >
+                </nav>
+                <p aria-label="Copyright">
+                    &copy;2024 Dylan Navajas Gluck. All rights reserved.
+                </p>
+            </section>
+        </footer>
+    </body>
+</html>

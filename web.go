@@ -2,6 +2,7 @@ package main
 
 import (
 	"dylangluck/blog"
+	"dylangluck/handlers"
 	"embed"
 	"html/template"
 	"log"
@@ -9,6 +10,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cache"
+	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/template/html/v2"
 )
 
@@ -16,6 +18,9 @@ import (
 var viewsfs embed.FS
 
 func main() {
+	// Posts Collection
+	c := blog.New()
+
 	// Create a new engine
 	engine := html.NewFileSystem(http.FS(viewsfs), ".html")
 	engine.AddFunc(
@@ -30,50 +35,22 @@ func main() {
 		Views: engine,
 	})
 
-	// Add cache middleware
+	// Add middleware
 	app.Use(cache.New())
+	app.Use(recover.New())
+
+	// Route: Index
+	app.Get("/", handlers.HandleIndex(c))
+
+	// Route: Blog
+	app.Get("/blog", handlers.HandleBlog(c))
+	app.Get("/blog/:name", handlers.HandlePost(c))
 
 	// Serve static files
 	app.Static("/", "./public")
 
-	// Route: Index
-	app.Get("/", func(c *fiber.Ctx) error {
-		// Get recent posts
-		posts := blog.GetRecentPosts(2)
-
-		// Render index within layouts/main
-		return c.Render("views/index", fiber.Map{
-			"Title": "Profile",
-			"Posts": posts,
-		}, "views/layouts/main")
-	})
-
-	// Route: Blog
-	app.Get("/blog", func(c *fiber.Ctx) error {
-		// Get recent posts
-		posts := blog.GetRecentPosts(10)
-
-		// Render index within layouts/main
-		return c.Render("views/blog", fiber.Map{
-			"Title": "Blog",
-			"Posts": posts,
-		}, "views/layouts/main")
-	})
-
-	app.Get("/blog/:name", func(c *fiber.Ctx) error {
-		name := c.Params("name")
-		meta := blog.GetPostMeta(name)
-		content := blog.RenderPostContent(name)
-		// Render article within layouts/main
-		return c.Render("views/post", fiber.Map{
-			"Id":      meta.Id,
-			"Title":   meta.Title,
-			"Short":   meta.Short,
-			"Date":    meta.Date,
-			"Tags":    meta.Tags,
-			"Content": content,
-		}, "views/layouts/main")
-	})
+	// Handle not found
+	app.Use(handlers.NotFound)
 
 	log.Fatal(app.Listen(":8080"))
 }
