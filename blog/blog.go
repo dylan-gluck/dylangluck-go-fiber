@@ -58,6 +58,18 @@ func (p *Posts) SortByDate() {
 	}
 }
 
+func (p *Posts) FilterByTag(tag string) Posts {
+	var posts Posts
+	for _, post := range *p {
+		for _, t := range post.Tags {
+			if t == tag {
+				posts = append(posts, post)
+			}
+		}
+	}
+	return posts
+}
+
 func (p *Posts) Recent(limit int, page int) (Posts, error) {
 	start := limit * (page - 1)
 	if start > len(*p) {

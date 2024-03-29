@@ -45,6 +45,7 @@ func main() {
 	// Route: Blog
 	app.Get("/blog", handlers.HandleBlog(c))
 	app.Get("/blog/:name", handlers.HandlePost(c))
+	app.Get("/blog/tag/:tag", handlers.HandleTag(c))
 
 	// Serve static files with cache
 	app.Static("/", "./public", fiber.Static{

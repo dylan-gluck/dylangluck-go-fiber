@@ -6,7 +6,7 @@
     hx-select="main"
     hx-swap="outerHTML"
 >
-    <h1>Blog</h1>
+    <h1>{{ .Title }}</h1>
     {{ range .Posts }}
     <article id="{{ .Id }}">
         <hgroup>
