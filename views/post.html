@@ -15,7 +15,13 @@
     </hgroup>
     <div class="grid">
         <section class="post-content">{{ unescape .Content }}</section>
-        <aside>
+        <aside
+            hx-boost="true"
+            hx-push-url="true"
+            hx-target="main"
+            hx-select="main"
+            hx-swap="outerHTML"
+        >
             <dl>
                 <dt>Created</dt>
                 <dd>{{ .Date }}</dd>
