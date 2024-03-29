@@ -1,0 +1,116 @@
+#intro {
+    padding-block: 2rem;
+
+    hgroup {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        > :not(:first-child):last-child {
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+    }
+
+    h1 {
+        margin: 0;
+        animation:
+            blurIn 800ms ease-out 700ms backwards,
+            fadeUp 900ms ease-in 50ms backwards;
+    }
+
+    h3 {
+        font-family: "Inter", sans-serif;
+        color: var(--secondary);
+        animation: fadeUp 600ms ease-in 900ms backwards;
+    }
+}
+
+#profile {
+    --pico-grid-column-gap: 4rem;
+    --pico-grid-row-gap: 2rem;
+    padding-block: 2rem;
+
+    .content {
+        grid-column: span 2;
+        animation: fadeUp 500ms ease-in 1s backwards;
+    }
+
+    > aside {
+        animation: fadeUp 500ms ease-in 1.1s backwards;
+    }
+
+    p {
+        font-family: "Lora";
+        color: var(--secondary);
+        max-width: 70ch;
+
+        .label {
+            color: var(--primary);
+        }
+    }
+
+    .focus-paragraph {
+        transition: color 600ms ease-in-out;
+
+        &.intersecting {
+            color: color-mix(in srgb, var(--text), var(--accent) 50%);
+        }
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+}
+
+#recent {
+    animation: fadeUp 600ms ease-in 800ms backwards;
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    time {
+        display: inline-block;
+        margin-left: 0.25rem;
+        font-family: "Lora";
+        font-style: italic;
+        font-size: 0.7em;
+        opacity: 0.5;
+        transition:
+            opacity 300ms ease-in-out,
+            translate 200ms ease-in-out;
+    }
+}
+
+@media (min-width: 768px) {
+    #recent li {
+        time {
+            translate: 30% 0;
+            opacity: 0;
+        }
+
+        a:hover + time {
+            translate: 0 0;
+            opacity: 0.5;
+        }
+    }
+}
+
+.sidebar {
+    dl {
+        margin-bottom: 0.5rem;
+
+        .role {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .company {
+            font-size: 0.7rem;
+            color: var(--accent);
+            margin: 0;
+        }
+    }
+}

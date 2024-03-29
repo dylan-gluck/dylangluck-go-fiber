@@ -35,3 +35,22 @@ article {
         background-color: var(--accent);
     }
 }
+
+#theme-toggle {
+    font-size: 1rem;
+    line-height: 1;
+    height: fit-content;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--primary);
+    }
+}
+
+[data-theme="dark"] #icon-moon {
+    display: none;
+}
+
+[data-theme="light"] #icon-sun {
+    display: none;
+}

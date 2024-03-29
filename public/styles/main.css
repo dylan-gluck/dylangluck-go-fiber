@@ -5,3 +5,8 @@
 @import url("global/typography.css");
 @import url("global/animations.css");
 @import url("global/accessibility.css");
+
+@import url("global/header.css");
+@import url("global/footer.css");
+
+@import url("pages/home.css");

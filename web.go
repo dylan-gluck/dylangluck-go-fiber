@@ -46,8 +46,10 @@ func main() {
 	app.Get("/blog", handlers.HandleBlog(c))
 	app.Get("/blog/:name", handlers.HandlePost(c))
 
-	// Serve static files
-	app.Static("/", "./public")
+	// Serve static files with cache
+	app.Static("/", "./public", fiber.Static{
+		MaxAge: 3600,
+	})
 
 	// Handle not found
 	app.Use(handlers.NotFound)
