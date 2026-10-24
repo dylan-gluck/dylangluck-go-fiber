@@ -16,6 +16,9 @@ ADD *.go ./
 RUN mkdir ./blog
 COPY blog/ ./blog/
 
+RUN mkdir ./handlers
+COPY handlers/ ./handlers/
+
 RUN mkdir ./public
 COPY public/ ./public/
 

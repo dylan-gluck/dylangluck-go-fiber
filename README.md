@@ -28,9 +28,13 @@ This is a personal portfolio and blog website for Dylan Navajas Gluck, a full-st
 ## Project Structure
 
 ```
-apps/dylangluck-go-fiber/
+dylangluck-com/
 ├── web.go                  # Main application entry point
 ├── go.mod                  # Go module dependencies
+├── devenv.nix             # Dev shell, `devenv up` process, deploy script
+├── devenv.yaml / devenv.lock # devenv inputs (pinned)
+├── .envrc                 # direnv: loads the devenv shell
+├── .air.toml              # Air hot reload configuration
 ├── Dockerfile              # Docker build configuration
 ├── fly.toml               # Fly.io deployment configuration
 ├── blog/                  # Blog system package
@@ -72,46 +76,33 @@ apps/dylangluck-go-fiber/
 
 ### Prerequisites
 
-- Go 1.22 or higher
-- Docker (optional, for containerized deployment)
+- [devenv](https://devenv.sh) (provides Go, gopls, Air, and flyctl)
+- [direnv](https://direnv.net) (optional, auto-loads the shell on `cd`)
+- Docker (optional, for local container builds)
 
 ### Local Development
 
-1. **Clone the repository and navigate to the project directory**:
+1. **Enter the dev shell**:
    ```bash
-   cd apps/dylangluck-go-fiber
+   direnv allow   # first time only; afterwards the shell loads on cd
+   # or, without direnv:
+   devenv shell
    ```
 
-2. **Install dependencies**:
+2. **Start the dev server with hot reload**:
    ```bash
-   go mod download
+   devenv up
    ```
 
-3. **Install Air for hot reload (recommended)**:
-   ```bash
-   # Install Air globally
-   go install github.com/air-verse/air@latest
+   Air (`.air.toml`) rebuilds and restarts the server whenever Go, template, blog content, or static asset files change. Views are embedded at build time and responses are cached in memory, so a restart is required for any change to show up.
 
-   # Or use the install script
-   curl -sSfL https://raw.githubusercontent.com/air-verse/air/master/install.sh | sh -s
+   Or run once without hot reload:
+   ```bash
+   go run .
    ```
 
-4. **Run with hot reload using Air**:
-   ```bash
-   # Initialize Air configuration (first time only)
-   air init
-
-   # Run with hot reload
-   air
-   ```
-
-   Or run without hot reload:
-   ```bash
-   go run web.go
-   ```
-
-5. **Access the application**:
-   Open your browser to `http://localhost:8080`
+3. **Access the application**:
+   Open your browser to `http://localhost:3000` (devenv sets `PORT=3000`).
 
 ### Docker Deployment
 
@@ -127,34 +118,21 @@ apps/dylangluck-go-fiber/
 
 ### Fly.io Deployment
 
-The application is configured for deployment on Fly.io. See [../../ai_docs/fly-io/](../../ai_docs/fly-io/) for complete deployment documentation.
-
-#### Prerequisites
-
-Install flyctl:
-```bash
-# macOS
-brew install flyctl
-
-# Linux/WSL
-curl -L https://fly.io/install.sh | sh
-
-# Windows PowerShell
-pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex"
-```
+The application is configured for deployment on Fly.io. `flyctl` is provided by the dev shell.
 
 #### Initial Setup
 
 ```bash
 # Authenticate with Fly.io
 fly auth login
+```
 
-# Launch application (first time only)
-# This creates fly.toml and sets up your app
-fly launch
+#### Deploy
 
-# Deploy the application
-fly deploy
+```bash
+# Compiles locally to fail fast, then runs `flyctl deploy` (remote Docker build).
+# Extra arguments are passed through to flyctl, e.g. `deploy --local-only`.
+deploy
 ```
 
 #### Essential Commands
@@ -255,7 +233,7 @@ fly checks list         # Health check status
 
 The application uses default configurations but can be customized:
 
-- **Port**: Defaults to `:8080` (can be modified in `web.go`)
+- **Port**: `PORT` environment variable, defaults to `8080` (devenv sets `3000` for local development)
 - **Static Cache**: 1 hour cache for static assets
 - **Template Caching**: Automatic template reloading in development
 

@@ -1,0 +1,18 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  cmd = "go build -o ./tmp/main ."
+  entrypoint = ["./tmp/main"]
+  # Views are embedded at build time and blog articles are read at startup;
+  # public assets are served from disk but cached by the cache middleware,
+  # so every change needs a rebuild/restart.
+  include_ext = ["go", "html", "css", "md", "yml", "yaml", "js", "json", "txt", "webmanifest"]
+  exclude_dir = ["tmp", ".devenv", ".direnv", ".git"]
+  delay = 200
+  kill_delay = "1s"
+  send_interrupt = true
+  stop_on_error = true
+
+[log]
+  main_only = true
