@@ -98,19 +98,23 @@
 }
 
 .sidebar {
-    dl {
+    & dl {
         margin-bottom: 0.5rem;
 
-        .role {
+        & dt {
             font-size: 0.9rem;
             color: var(--secondary);
             margin: 0;
         }
 
-        .company {
+        & dd {
             font-size: 0.7rem;
             color: var(--accent);
             margin: 0;
+
+            & + dd {
+                margin-top: 0.25rem;
+            }
         }
     }
 }
